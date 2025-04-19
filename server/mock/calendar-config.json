@@ -1,0 +1,100 @@
+[
+  {
+    "id": 1,
+    "name": "Office Calendar 2025",
+    "category": "Business",
+    "variationType": "Regular",
+
+    "weeklyRest": "Sunday",
+    "weeklyHoliday": "Friday",
+
+    "shifts": [
+      {
+        "name": "Morning Shift",
+        "days": [
+          { "day": "Monday", "start": "09:00", "end": "17:00" },
+          { "day": "Tuesday", "start": "09:00", "end": "17:00" },
+          { "day": "Wednesday", "start": "09:00", "end": "17:00" },
+          { "day": "Thursday", "start": "09:00", "end": "17:00" },
+          { "day": "Friday", "start": "09:00", "end": "13:00" },
+          { "day": "Saturday", "start": null, "end": null },
+          { "day": "Sunday", "start": null, "end": null }
+        ]
+      }
+    ],
+
+    "publicHolidays": [
+      {
+        "name": "New Year's Day",
+        "startDate": "2025-01-01",
+        "endDate": "2025-01-01"
+      },
+      {
+        "name": "Independence Day",
+        "startDate": "2025-03-26",
+        "endDate": "2025-03-26"
+      }
+    ],
+
+    "eventHolidays": [
+      {
+        "name": "Annual Conference",
+        "startDate": "2025-06-10",
+        "endDate": "2025-06-12"
+      },
+      {
+        "name": "Company Anniversary",
+        "startDate": "2025-09-01",
+        "endDate": "2025-09-01"
+      }
+    ],
+
+    "termBreaks": [
+      {
+        "startDate": "2025-07-01",
+        "endDate": "2025-07-15"
+      }
+    ],
+
+    "restLeave": {
+      "startDate": "2025-12-24",
+      "endDate": "2025-12-31"
+    },
+
+    "ramadanRules": [
+      {
+        "state": "Dhaka",
+        "startTime": "09:00",
+        "endTime": "15:00"
+      },
+      {
+        "state": "Chittagong",
+        "startTime": "10:00",
+        "endTime": "16:00"
+      }
+    ],
+
+    "agencySpecificHolidays": [
+      {
+        "agency": "Agency A",
+        "holidays": [
+          {
+            "name": "Agency A Founding Day",
+            "startDate": "2025-05-10",
+            "endDate": "2025-05-10"
+          }
+        ]
+      },
+      {
+        "agency": "Agency B",
+        "holidays": [
+          {
+            "name": "Special Seminar",
+            "startDate": "2025-08-05",
+            "endDate": "2025-08-06"
+          }
+        ]
+      }
+    ]
+  }
+]
