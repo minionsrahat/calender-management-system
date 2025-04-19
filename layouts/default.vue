@@ -21,5 +21,15 @@
     </footer>
   </div>
 </template>
-<script setup lang="ts">
+<script setup>
+import { useAgencyStore } from '@/stores/agencyStore'
+import {useHolidayStore} from "~/stores/holidayStore.js";
+import {onMounted} from "vue";
+const agencyStore = useAgencyStore()
+const holidayStore = useHolidayStore()
+
+onMounted(() => {
+  agencyStore.fetchAgencies()
+  holidayStore.fetchHolidays()
+})
 </script>

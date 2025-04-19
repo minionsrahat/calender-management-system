@@ -27,9 +27,9 @@
                   required
               >
                 <option disabled value="">Select a category</option>
-                <option value="office">Office Working Hours</option>
-                <option value="non-office">Non-Office Working Hours</option>
-                <option value="different">Different Working Hours</option>
+                <option v-for="category in getCategories" :key="category.value" :value="category.value">
+                  {{ category.label }}
+                </option>
               </select>
             </div>
           </div>
@@ -101,12 +101,12 @@
               />
             </div>
           </div>
-          <div class="mb-6">
-            <label class="block text-lg font-medium text-gray-700 mb-2">Public Holidays (Federal/State)</label>
+          <div class="mb-6 flex items-center">
+            <label class="block text-lg ml-2 font-medium text-gray-700 mb-2">Public Holidays (Federal/State)</label>
             <button
                 type="button"
-                @click="showPublicHolidaysModal = true"
-                class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700"
+                @click="openModal('holidays')"
+                class="bg-blue-600 ml-2 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700"
             >
               View Public Holidays
             </button>
@@ -128,12 +128,12 @@
               />
             </div>
           </div>
-          <div class="mb-6">
-            <label class="block text-lg font-medium text-gray-700 mb-2">Event Holidays</label>
+          <div class="mb-6 flex items-center">
+            <label class="block text-lg  ml-2 font-medium text-gray-700 mb-2 ml-2">Event Holidays</label>
             <button
                 type="button"
                 @click="showEventHolidaysModal = true"
-                class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700"
+                class="bg-blue-600 ml-2 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700"
             >
               View Event Holidays
             </button>
@@ -148,13 +148,9 @@
                   class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500"
               >
                 <option disabled value="">Select Rest Day</option>
-                <option value="sunday">Sunday</option>
-                <option value="monday">Monday</option>
-                <option value="tuesday">Tuesday</option>
-                <option value="wednesday">Wednesday</option>
-                <option value="thursday">Thursday</option>
-                <option value="friday">Friday</option>
-                <option value="saturday">Saturday</option>
+                <option v-for="day in getDays" :key="day.value" :value="day.value">
+                  {{ day.label }}
+                </option>
               </select>
             </div>
 
@@ -166,13 +162,9 @@
                   class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500"
               >
                 <option disabled value="">Select Holiday</option>
-                <option value="sunday">Sunday</option>
-                <option value="monday">Monday</option>
-                <option value="tuesday">Tuesday</option>
-                <option value="wednesday">Wednesday</option>
-                <option value="thursday">Thursday</option>
-                <option value="friday">Friday</option>
-                <option value="saturday">Saturday</option>
+                <option v-for="day in getDays" :key="day.value" :value="day.value">
+                  {{ day.label }}
+                </option>
               </select>
             </div>
           </div>
@@ -181,8 +173,8 @@
             <label class="block text-lg font-medium text-gray-700 mb-2">Local States / Agencies</label>
             <button
                 type="button"
-                @click="showStatesModal = true"
-                class=" ml-3 bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700"
+                @click="openModal('agencies')"
+                class=" ml-2 bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700"
             >
               Select States / Agencies
             </button>
@@ -194,7 +186,16 @@
 
     </form>
 
-    <!-- Success Message -->
+    <BaseModal
+        :visible="showModal"
+        :title="modalTitle"
+        :content-type="selectedContent"
+        @close="showModal = false"
+    >
+    </BaseModal>
+
+
+
     <div
         v-if="isSuccess"
         class="mt-6 p-4 bg-green-100 text-green-700 rounded-lg text-center"
@@ -205,9 +206,13 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import BaseModal from '@/components/BaseModal.vue'
+import { useCalendarOptionsStore } from '@/stores/calendarOptions'
+import { storeToRefs } from 'pinia'
+const optionsStore = useCalendarOptionsStore()
+const { getDays, getCategories } = storeToRefs(optionsStore)
 
-const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+import { ref } from 'vue'
 
 const calendar = ref({
   name: '',
@@ -218,23 +223,29 @@ const calendar = ref({
   publicHolidays: [{ name: '', type: '', startDate: '', endDate: '' }]
 })
 
+
+const showModal = ref(false)
+const selectedContent = ref('')
+const modalTitle = ref('')
+
+function openModal(type) {
+  selectedContent.value = type
+  modalTitle.value = {
+    agencies: 'Agency List',
+    states: 'State List',
+    holidays: 'Public Holiday List',
+  }[type]
+  showModal.value = true
+}
+
 const isSuccess = ref(false)
 
 function submitCalendar() {
-  console.log('Calendar Submitted:', calendar.value)
-  // Simulate success
   setTimeout(() => {
     isSuccess.value = true
   }, 1000)
 }
 
-function addHoliday() {
-  calendar.value.publicHolidays.push({ name: '', type: '', startDate: '', endDate: '' })
-}
-
-function removeHoliday(index) {
-  calendar.value.publicHolidays.splice(index, 1)
-}
 </script>
 
 <style >
@@ -243,7 +254,7 @@ input, select, button {
 }
 
 input:focus, select:focus {
-  border-color: #1D4ED8; /* Focus border color */
+  border-color: #1D4ED8;
 }
 
 button:hover {

@@ -1,0 +1,22 @@
+[
+  { "date": "2025-01-07", "day": "Tuesday", "holidayname": "Republic Day" },
+  { "date": "2025-07-27", "day": "Sunday", "holidayname": "Labor Day" },
+  { "date": "2025-07-04", "day": "Friday", "holidayname": "Independence Day" },
+  { "date": "2025-05-21", "day": "Wednesday", "holidayname": "Gandhi Jayanti" },
+  { "date": "2025-10-13", "day": "Monday", "holidayname": "Christmas" },
+  { "date": "2025-03-13", "day": "Thursday", "holidayname": "New Year" },
+  { "date": "2025-08-16", "day": "Saturday", "holidayname": "Diwali" },
+  { "date": "2025-09-07", "day": "Sunday", "holidayname": "Holi" },
+  { "date": "2025-07-12", "day": "Saturday", "holidayname": "Eid al-Fitr" },
+  { "date": "2025-10-22", "day": "Wednesday", "holidayname": "Eid al-Adha" },
+  { "date": "2025-09-28", "day": "Sunday", "holidayname": "Good Friday" },
+  { "date": "2025-06-13", "day": "Friday", "holidayname": "Easter" },
+  { "date": "2025-06-10", "day": "Tuesday", "holidayname": "Maha Shivaratri" },
+  { "date": "2025-05-29", "day": "Thursday", "holidayname": "Janmashtami" },
+  { "date": "2025-05-06", "day": "Tuesday", "holidayname": "Raksha Bandhan" },
+  { "date": "2025-10-24", "day": "Friday", "holidayname": "Dussehra" },
+  { "date": "2025-04-10", "day": "Thursday", "holidayname": "Guru Nanak Jayanti" },
+  { "date": "2025-05-20", "day": "Tuesday", "holidayname": "Baisakhi" },
+  { "date": "2025-07-23", "day": "Wednesday", "holidayname": "Ugadi" },
+  { "date": "2025-05-24", "day": "Saturday", "holidayname": "Onam" }
+]
