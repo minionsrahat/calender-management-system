@@ -1,12 +1,13 @@
 [
-  { "id": 1, "name": "California" },
-  { "id": 2, "name": "Texas" },
-  { "id": 3, "name": "New York" },
-  { "id": 4, "name": "Florida" },
-  { "id": 5, "name": "Illinois" },
-  { "id": 6, "name": "Pennsylvania" },
-  { "id": 7, "name": "Ohio" },
-  { "id": 8, "name": "Georgia" },
-  { "id": 9, "name": "North Carolina" },
-  { "id": 10, "name": "Michigan" }
+  { "id": 1, "name": "California" ,"selected": true},
+  { "id": 2, "name": "Texas", "selected": false},
+  { "id": 3, "name": "New York", "selected": true},
+  { "id": 4, "name": "Florida", "selected": false},
+  { "id": 5, "name": "Illinois", "selected": true},
+  { "id": 6, "name": "Pennsylvania", "selected": false},
+  { "id": 7, "name": "Ohio", "selected": true},
+  { "id": 8, "name": "Georgia", "selected": false},
+  { "id": 9, "name": "North Carolina", "selected": true},
+  { "id": 10, "name": "Michigan", "selected": true}
+
 ]

@@ -3,25 +3,26 @@
       :data-source="states"
       :show-borders="true"
       :column-auto-width="true"
-      :selection="{ mode: 'multiple' }"
+      :selection="{ mode: 'multiple', showCheckBoxesMode: 'always' }"
+      :selected-row-keys="selectedKeys"
       @selection-changed="onSelectionChanged"
+      key-expr="id"
   >
-    <DxColumn dataField="id" caption="ID" />
     <DxColumn dataField="name" caption="State Name" />
   </DxDataGrid>
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { computed } from 'vue'
 import { DxDataGrid, DxColumn } from 'devextreme-vue/data-grid'
 import { useStateStore } from '@/stores/stateStore'
 
-const emit = defineEmits(['statesSelected'])
 const store = useStateStore()
-const states =computed(() => store.getStates)
+
+const states = computed(() => store.getStates)
+const selectedKeys = computed(() => store.selectedStateIds)
 
 function onSelectionChanged(e) {
-  console.log('Selected States:', e.selectedRowsData)
-  emit('statesSelected', e.selectedRowsData)
+  store.updateSelectedStates(e.selectedRowKeys)
 }
 </script>
