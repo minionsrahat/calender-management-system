@@ -3,8 +3,9 @@
       :data-source="agencies"
       :show-borders="true"
       :column-auto-width="true"
-      @selection-changed="onSelectionChanged"
       :selection="{ mode: 'multiple', showCheckBoxesMode: 'always' }"
+      :selected-row-keys="selectedKeys"
+      @selection-changed="onSelectionChanged"
       key-expr="id"
   >
     <DxColumn dataField="name" caption="Agency Name" />
@@ -13,21 +14,15 @@
 
 <script setup>
 import { DxDataGrid, DxColumn } from 'devextreme-vue/data-grid'
-import { onMounted, computed } from 'vue'
+import { computed } from 'vue'
 import { useAgencyStore } from '@/stores/agencyStore'
-
-const emit = defineEmits(['selected'])
 
 const agencyStore = useAgencyStore()
 
 const agencies = computed(() => agencyStore.getAllAgencies)
-
-onMounted(() => {
-  console.log('AgencyTable mounted')
-  console.log(agencyStore.fetchAgencies())
-})
+const selectedKeys = computed(() => agencyStore.selectedAgencyIds)
 
 function onSelectionChanged(e) {
-  emit('selected', e.selectedRowsData)
+  agencyStore.updateSelectedAgencies(e.selectedRowKeys)
 }
 </script>

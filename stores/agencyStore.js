@@ -8,9 +8,19 @@ export const useAgencyStore = defineStore('agency', {
         async fetchAgencies() {
             const data = await $fetch('/api/agencies')
             this.agencies = data
+        },
+
+        updateSelectedAgencies(selectedIds) {
+            this.agencies = this.agencies.map(agency => ({
+                ...agency,
+                selected: selectedIds.includes(agency.id)
+            }))
         }
     },
     getters: {
-        getAllAgencies: (state) => state.agencies
+        getAllAgencies: (state) => state.agencies,
+        selectedAgencyIds: (state) => state.agencies
+            .filter(agency => agency.selected)
+            .map(agency => agency.id)
     }
 })

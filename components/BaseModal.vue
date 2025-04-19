@@ -23,6 +23,7 @@ import { DxPopup } from 'devextreme-vue/popup'
 
 import AgencyTable from './tables/AgencyTable.vue'
 import PublicHolidayTable from './tables/PublicHolidayTable.vue'
+import StateTable from "~/components/tables/StateTable.vue";
 
 const props = defineProps({
   visible: Boolean,
@@ -33,6 +34,7 @@ const props = defineProps({
 const componentMap = {
   agencies: AgencyTable,
   holidays: PublicHolidayTable,
+  states: StateTable,
 }
 
 const currentComponent = computed(() => componentMap[props.contentType] || null)

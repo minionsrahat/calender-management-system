@@ -27,7 +27,7 @@
                   required
               >
                 <option disabled value="">Select a category</option>
-                <option v-for="category in getCategories" :key="category.value" :value="category.value">
+                <option v-for="category in getCalendarCategories" :key="category.value" :value="category.value">
                   {{ category.label }}
                 </option>
               </select>
@@ -112,31 +112,64 @@
             </button>
           </div>
           <div class="mb-6">
-            <label class="block text-lg font-medium text-gray-700 mb-2">Term Break Duration</label>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input
-                  type="date"
-                  v-model="calendar.termBreakStart"
-                  class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500"
-                  placeholder="Start Date"
-              />
-              <input
-                  type="date"
-                  v-model="calendar.termBreakEnd"
-                  class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500"
-                  placeholder="End Date"
-              />
+            <label class="block text-lg font-medium text-gray-700 mb-4">Term Break Duration</label>
+            <div class="mb-4">
+              <h3 class="text-md font-semibold text-gray-800 mb-2">Term 1</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input
+                    type="date"
+                    v-model="calendar.term1.start"
+                    class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500"
+                    placeholder="Start Date"
+                />
+                <input
+                    type="date"
+                    v-model="calendar.term1.end"
+                    class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500"
+                    placeholder="End Date"
+                />
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-md font-semibold text-gray-800 mb-2">Term 2</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input
+                    type="date"
+                    v-model="calendar.term2.start"
+                    class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500"
+                    placeholder="Start Date"
+                />
+                <input
+                    type="date"
+                    v-model="calendar.term2.end"
+                    class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500"
+                    placeholder="End Date"
+                />
+              </div>
             </div>
           </div>
-          <div class="mb-6 flex items-center">
-            <label class="block text-lg  ml-2 font-medium text-gray-700 mb-2 ml-2">Event Holidays</label>
-            <button
-                type="button"
-                @click="showEventHolidaysModal = true"
-                class="bg-blue-600 ml-2 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700"
-            >
-              View Event Holidays
-            </button>
+
+          <div class="mb-6">
+            <label class="block text-lg font-medium text-gray-700 mb-4">Holiday Events</label>
+
+            <div v-for="(event, index) in calendar.holidayEvents" :key="index" class="mb-4">
+              <h3 class="text-md font-semibold text-gray-800 mb-2">Event {{ index + 1 }}</h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input
+                    type="text"
+                    v-model="event.name"
+                    class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500"
+                    placeholder="Event Name"
+                />
+                <input
+                    type="date"
+                    v-model="event.date"
+                    class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500"
+                    placeholder="Event Date"
+                />
+              </div>
+            </div>
           </div>
 
           <div class="mb-6 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -168,15 +201,23 @@
               </select>
             </div>
           </div>
-
+          <div class="mb-6 flex items-center">
+            <label class="block text-lg  ml-2 font-medium text-gray-700 mb-2 ml-2">List of States</label>
+            <button
+                type="button"
+                @click="openModal('states')"
+                class="bg-blue-600 ml-2 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700"
+            >States Update
+            </button>
+          </div>
           <div class="mb-6 flex items-center ">
-            <label class="block text-lg font-medium text-gray-700 mb-2">Local States / Agencies</label>
+            <label class="block text-lg font-medium text-gray-700 mb-2"> Agencies</label>
             <button
                 type="button"
                 @click="openModal('agencies')"
                 class=" ml-2 bg-blue-600 text-white px-4 py-2 rounded-lg shadow hover:bg-blue-700"
             >
-              Select States / Agencies
+              Agency Update
             </button>
           </div>
         </div>
@@ -191,10 +232,23 @@
         :title="modalTitle"
         :content-type="selectedContent"
         @close="showModal = false"
-    >
-    </BaseModal>
+        @select="handleSelect"
+    />
 
-
+    <div class="mt-8 flex justify-center space-x-4">
+      <button
+          @click="submitCalendar"
+          class="bg-green-600 text-white px-6 py-3 rounded-lg shadow hover:bg-green-700"
+      >
+        Add Calendar
+      </button>
+      <button
+          @click="resetCalendar"
+          class="bg-gray-300 text-gray-800 px-6 py-3 rounded-lg shadow hover:bg-gray-400"
+      >
+        Reset
+      </button>
+    </div>
 
     <div
         v-if="isSuccess"
@@ -210,7 +264,7 @@ import BaseModal from '@/components/BaseModal.vue'
 import { useCalendarOptionsStore } from '@/stores/calendarOptions'
 import { storeToRefs } from 'pinia'
 const optionsStore = useCalendarOptionsStore()
-const { getDays, getCategories } = storeToRefs(optionsStore)
+const { getDays, getCalendarCategories } = storeToRefs(optionsStore)
 
 import { ref } from 'vue'
 
@@ -218,9 +272,22 @@ const calendar = ref({
   name: '',
   category: '',
   shiftType: '',
-  weeklyRest: '',
-  weeklyOff: '',
-  publicHolidays: [{ name: '', type: '', startDate: '', endDate: '' }]
+  variationType: '',
+  description: '',
+  restLeaveStart: '',
+  restLeaveEnd: '',
+  weeklyRestDay: '',
+  weeklyHoliday: '',
+  term1: { start: '', end: '' },
+  term2: { start: '', end: '' },
+  holidayEvents: [
+    { name: '', date: '' },
+    { name: '', date: '' },
+    { name: '', date: '' },
+  ],
+  states: [],
+  agencies: [],
+  publicHolidays: []
 })
 
 
@@ -237,8 +304,42 @@ function openModal(type) {
   }[type]
   showModal.value = true
 }
+function handleSelect(payload) {
+  if (selectedContent.value === 'states') {
+    calendar.value.states = payload
+  } else if (selectedContent.value === 'agencies') {
+    calendar.value.agencies = payload
+  }
+}
 
 const isSuccess = ref(false)
+
+function resetCalendar() {
+  calendar.value = {
+    name: '',
+    category: '',
+    shiftType: '',
+    variationType: '',
+    description: '',
+    restLeaveStart: '',
+    restLeaveEnd: '',
+    weeklyRestDay: '',
+    weeklyHoliday: '',
+    term1: { start: '', end: '' },
+    term2: { start: '', end: '' },
+    holidayEvents: [
+      { name: '', date: '' },
+      { name: '', date: '' },
+      { name: '', date: '' },
+    ],
+    states: [],
+    agencies: [],
+    publicHolidays: []
+  }
+  isSuccess.value = false
+}
+
+
 
 function submitCalendar() {
   setTimeout(() => {

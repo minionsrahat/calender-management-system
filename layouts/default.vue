@@ -25,11 +25,14 @@
 import { useAgencyStore } from '@/stores/agencyStore'
 import {useHolidayStore} from "~/stores/holidayStore.js";
 import {onMounted} from "vue";
+import {useStateStore} from "~/stores/stateStore.js";
 const agencyStore = useAgencyStore()
 const holidayStore = useHolidayStore()
+const stateStore = useStateStore()
 
 onMounted(() => {
   agencyStore.fetchAgencies()
   holidayStore.fetchHolidays()
+  stateStore.fetchStates()
 })
 </script>

@@ -1,0 +1,12 @@
+[
+  { "id": 1, "name": "California" },
+  { "id": 2, "name": "Texas" },
+  { "id": 3, "name": "New York" },
+  { "id": 4, "name": "Florida" },
+  { "id": 5, "name": "Illinois" },
+  { "id": 6, "name": "Pennsylvania" },
+  { "id": 7, "name": "Ohio" },
+  { "id": 8, "name": "Georgia" },
+  { "id": 9, "name": "North Carolina" },
+  { "id": 10, "name": "Michigan" }
+]
