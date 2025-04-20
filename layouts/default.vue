@@ -7,7 +7,8 @@
         <ul class="flex gap-4">
           <li><NuxtLink to="/" class="hover:underline">Home</NuxtLink></li>
           <li><NuxtLink to="/calendar/add" class="hover:underline">Add Calendar</NuxtLink></li>
-          <li><NuxtLink to="/calendar/list" class="hover:underline">Calendar List</NuxtLink></li>
+          <li><NuxtLink to="/calendar/" class="hover:underline">Calendar List</NuxtLink></li>
+          <li><NuxtLink to="/shift/" class="hover:underline">Shift Type List</NuxtLink></li>
         </ul>
       </nav>
     </header>

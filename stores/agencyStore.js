@@ -11,6 +11,7 @@ export const useAgencyStore = defineStore('agency', {
         },
 
         updateSelectedAgencies(selectedIds) {
+            console.log('set selected agencies', selectedIds)
             this.agencies = this.agencies.map(agency => ({
                 ...agency,
                 selected: selectedIds.includes(agency.id)
