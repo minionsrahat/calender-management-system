@@ -116,13 +116,13 @@
         </div>
 
         <div>
-          <h4 class="text-md font-semibold mb-2">Term 1</h4>
+          <h4 class="text-md font-semibold mb-2">Term Break 1</h4>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <input type="date" v-model="calendar.term1.start" class="w-full border border-gray-300 rounded-md px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
             <input type="date" v-model="calendar.term1.end" class="w-full border border-gray-300 rounded-md px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
           </div>
 
-          <h4 class="text-md font-semibold mt-6 mb-2">Term 2</h4>
+          <h4 class="text-md font-semibold mt-6 mb-2">Term Break 2</h4>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <input type="date" v-model="calendar.term2.start" class="w-full border border-gray-300 rounded-md px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
             <input type="date" v-model="calendar.term2.end" class="w-full border border-gray-300 rounded-md px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />

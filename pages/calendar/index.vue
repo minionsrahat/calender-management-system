@@ -26,7 +26,7 @@
       </div>
     </div>
 
-    <!-- DataGrid Section - 8 columns centered -->
+
     <div class="col-span-12 md:col-start-3 md:col-span-8">
       <div class="bg-white p-4 rounded-lg shadow-md">
         <DxDataGrid
@@ -36,8 +36,17 @@
             @editing-start="onEditingStart"
             @row-removing="onRowRemoving"
         >
+          <DxSearchPanel :visible="true" :highlight-case-sensitive="false" :width="240" placeholder="Search..." />
+          <DxPaging :enabled="true" :page-size="15" />
+          <DxPager
+              :visible="true"
+              :allowed-page-sizes="[15, 30, 20]"
+              :show-page-size-selector="true"
+              :show-info="true"
+              :show-navigation-buttons="true"
+          />
           <DxColumn dataField="name" caption="Calendar Name" />
-          <DxColumn dataField="category" caption="Category" />
+          <DxColumn caption="Category"  :calculate-display-value="(rowData) =>findCalendarCategoryLabelByValue(rowData.category) "/>
 
           <DxEditing
               :allow-updating="true"
@@ -54,7 +63,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { DxDataGrid, DxColumn, DxButton , DxEditing} from 'devextreme-vue/data-grid'
+import {DxDataGrid, DxColumn, DxButton, DxEditing, DxPager, DxSearchPanel, DxPaging} from 'devextreme-vue/data-grid'
 import { storeToRefs } from 'pinia'
 const router = useRouter()
 const selectedCategory = ref('')
@@ -64,7 +73,7 @@ const filteredCalendars = ref([])
 
 
 const optionsStore = useCalendarOptionsStore()
-const { getCalendarCategories } = storeToRefs(optionsStore)
+const { getCalendarCategories,findCalendarCategoryLabelByValue } = storeToRefs(optionsStore)
 
 onMounted(() => {
   calendarCategories.value = getCalendarCategories.value || []

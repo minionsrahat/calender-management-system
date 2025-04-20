@@ -21,6 +21,10 @@ export const useCalendarOptionsStore = defineStore('calendarOptions', {
 
     getters: {
         getDays: (state) => state.days,
-        getCalendarCategories: (state) => state.categories
+        getCalendarCategories: (state) => state.categories,
+        findCalendarCategoryLabelByValue: (state) => (value) => {
+            const category = state.categories.find((cat) => cat.value === value)
+            return category ? category.label : null
+        }
     }
 })

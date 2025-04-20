@@ -34,6 +34,15 @@
             key-expr="day"
             @row-updated="onShiftDayUpdated"
         >
+          <DxSearchPanel :visible="true" :highlight-case-sensitive="false" :width="240" placeholder="Search..." />
+          <DxPaging :enabled="true" :page-size="5" />
+          <DxPager
+              :visible="true"
+              :allowed-page-sizes="[5, 10, 20]"
+              :show-page-size-selector="true"
+              :show-info="true"
+              :show-navigation-buttons="true"
+          />
           <DxColumn dataField="day" caption="Day" :allowEditing="false" />
           <DxColumn dataField="start" caption="Start Time" />
           <DxColumn dataField="end" caption="End Time" />
@@ -51,7 +60,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { DxDataGrid, DxColumn, DxEditing } from 'devextreme-vue/data-grid'
+import { DxDataGrid, DxColumn, DxEditing,DxSearchPanel, DxPaging,DxPager} from 'devextreme-vue/data-grid'
 
 const shifts = ref([])
 const selectedShiftId = ref('')
