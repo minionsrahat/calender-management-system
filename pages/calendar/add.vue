@@ -268,6 +268,13 @@ const { getDays, getCalendarCategories } = storeToRefs(optionsStore)
 
 import { ref } from 'vue'
 
+const agencyStore = useAgencyStore()
+const stateStore = useStateStore()
+
+const { agencies } = storeToRefs(agencyStore)
+const { states } = storeToRefs(stateStore)
+
+
 const calendar = ref({
   name: '',
   category: '',
@@ -288,6 +295,14 @@ const calendar = ref({
   states: [],
   agencies: [],
   publicHolidays: []
+})
+
+watch(states, (newStates) => {
+  calendar.value.states = [...newStates]
+})
+
+watch(agencies, (newAgencies) => {
+  calendar.value.agencies = [...newAgencies]
 })
 
 
