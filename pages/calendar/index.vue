@@ -87,10 +87,24 @@ function onEditingStart(e) {
   router.push(`/calendar/edit/${calendarId}`)
 }
 
-function onRowRemoving(e) {
-  e.cancel = true
+async function onRowRemoving(e) {
+  const calendarId = e.data.id
+  try {
+    const res = await $fetch(`/api/calendars/${calendarId}`, { method: 'DELETE' })
 
+    if (res.success) {
+      await fetchCalendars()
+    } else {
+      alert(res.message || 'Failed to delete calendar.')
+      e.cancel = true
+    }
+  } catch (error) {
+    console.error('Error deleting calendar:', error)
+    alert('Something went wrong while deleting the calendar.')
+    e.cancel = true
+  }
 }
+
 
 function filterCalendars() {
   if (selectedCategory.value) {

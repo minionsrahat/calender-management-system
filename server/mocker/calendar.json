@@ -1,22 +1,502 @@
 [
   {
-    "id": 1745122639901,
-    "name": "Office Calendar 2025",
-    "category": "office",
-    "shiftType": "2-days-off",
+    "id": 1745138161987,
+    "name": "Office Calendar 2024",
+    "category": "non-office",
+    "shiftType": 3,
     "variationType": "Group B",
-    "description": "fdsfsdfh dhsfgh fghfh fghdfgh dfghdgf hfghdfghdf ghfghdfg",
-    "restLeaveStart": "2025-04-23",
-    "restLeaveEnd": "2025-04-23",
-    "weeklyRestDay": "monday",
-    "weeklyHoliday": "monday",
+    "description": "sfdgdf fdgds dfgdfg dfgdsfg dfgfdgd",
+    "restLeaveStart": "2025-04-17",
+    "restLeaveEnd": "2025-04-17",
+    "weeklyRestDay": "sunday",
+    "weeklyHoliday": "saturday",
     "term1": {
-      "start": "2025-04-18",
+      "start": "2025-04-27",
       "end": "2025-04-09"
     },
     "term2": {
-      "start": "2025-04-26",
-      "end": "2025-04-30"
+      "start": "2025-04-25",
+      "end": "2025-04-23"
+    },
+    "holidayEvents": [
+      {
+        "name": "Birthday",
+        "date": "2025-04-15"
+      },
+      {
+        "name": "",
+        "date": ""
+      },
+      {
+        "name": "",
+        "date": ""
+      }
+    ],
+    "states": [
+      {
+        "id": 1,
+        "name": "California",
+        "selected": true
+      },
+      {
+        "id": 2,
+        "name": "Texas",
+        "selected": true
+      },
+      {
+        "id": 3,
+        "name": "New York",
+        "selected": true
+      },
+      {
+        "id": 4,
+        "name": "Florida",
+        "selected": true
+      },
+      {
+        "id": 5,
+        "name": "Illinois",
+        "selected": true
+      },
+      {
+        "id": 6,
+        "name": "Pennsylvania",
+        "selected": true
+      },
+      {
+        "id": 7,
+        "name": "Ohio",
+        "selected": true
+      },
+      {
+        "id": 8,
+        "name": "Georgia",
+        "selected": true
+      },
+      {
+        "id": 9,
+        "name": "North Carolina",
+        "selected": true
+      },
+      {
+        "id": 10,
+        "name": "Michigan",
+        "selected": true
+      }
+    ],
+    "agencies": [
+      {
+        "id": 1,
+        "name": "Agency A",
+        "selected": true
+      },
+      {
+        "id": 2,
+        "name": "Agency B",
+        "selected": true
+      },
+      {
+        "id": 3,
+        "name": "Agency C",
+        "selected": true
+      },
+      {
+        "id": 4,
+        "name": "Agency D",
+        "selected": true
+      },
+      {
+        "id": 5,
+        "name": "Agency E",
+        "selected": true
+      },
+      {
+        "id": 6,
+        "name": "Agency F",
+        "selected": true
+      },
+      {
+        "id": 7,
+        "name": "Agency G",
+        "selected": true
+      },
+      {
+        "id": 8,
+        "name": "Agency H",
+        "selected": true
+      },
+      {
+        "id": 9,
+        "name": "Agency I",
+        "selected": true
+      },
+      {
+        "id": 10,
+        "name": "Agency J",
+        "selected": true
+      }
+    ],
+    "publicHolidays": [
+      {
+        "date": "2025-01-07",
+        "day": "Tuesday",
+        "holidayname": "Republic Day"
+      },
+      {
+        "date": "2025-07-27",
+        "day": "Sunday",
+        "holidayname": "Labor Day"
+      },
+      {
+        "date": "2025-07-04",
+        "day": "Friday",
+        "holidayname": "Independence Day"
+      },
+      {
+        "date": "2025-05-21",
+        "day": "Wednesday",
+        "holidayname": "Gandhi Jayanti"
+      },
+      {
+        "date": "2025-10-13",
+        "day": "Monday",
+        "holidayname": "Christmas"
+      },
+      {
+        "date": "2025-03-13",
+        "day": "Thursday",
+        "holidayname": "New Year"
+      },
+      {
+        "date": "2025-08-16",
+        "day": "Saturday",
+        "holidayname": "Diwali"
+      },
+      {
+        "date": "2025-09-07",
+        "day": "Sunday",
+        "holidayname": "Holi"
+      },
+      {
+        "date": "2025-07-12",
+        "day": "Saturday",
+        "holidayname": "Eid al-Fitr"
+      },
+      {
+        "date": "2025-10-22",
+        "day": "Wednesday",
+        "holidayname": "Eid al-Adha"
+      },
+      {
+        "date": "2025-09-28",
+        "day": "Sunday",
+        "holidayname": "Good Friday"
+      },
+      {
+        "date": "2025-06-13",
+        "day": "Friday",
+        "holidayname": "Easter"
+      },
+      {
+        "date": "2025-06-10",
+        "day": "Tuesday",
+        "holidayname": "Maha Shivaratri"
+      },
+      {
+        "date": "2025-05-29",
+        "day": "Thursday",
+        "holidayname": "Janmashtami"
+      },
+      {
+        "date": "2025-05-06",
+        "day": "Tuesday",
+        "holidayname": "Raksha Bandhan"
+      },
+      {
+        "date": "2025-10-24",
+        "day": "Friday",
+        "holidayname": "Dussehra"
+      },
+      {
+        "date": "2025-04-10",
+        "day": "Thursday",
+        "holidayname": "Guru Nanak Jayanti"
+      },
+      {
+        "date": "2025-05-20",
+        "day": "Tuesday",
+        "holidayname": "Baisakhi"
+      },
+      {
+        "date": "2025-07-23",
+        "day": "Wednesday",
+        "holidayname": "Ugadi"
+      },
+      {
+        "date": "2025-05-24",
+        "day": "Saturday",
+        "holidayname": "Onam"
+      }
+    ]
+  },
+  {
+    "id": 1745141633434,
+    "name": "Office Calendar 2023",
+    "category": "non-office",
+    "shiftType": 4,
+    "variationType": "Group A",
+    "description": "",
+    "restLeaveStart": "2025-04-11",
+    "restLeaveEnd": "2025-04-18",
+    "weeklyRestDay": "tuesday",
+    "weeklyHoliday": "wednesday",
+    "term1": {
+      "start": "2025-04-13",
+      "end": "2025-04-18"
+    },
+    "term2": {
+      "start": "",
+      "end": ""
+    },
+    "holidayEvents": [
+      {
+        "name": "",
+        "date": ""
+      },
+      {
+        "name": "",
+        "date": ""
+      },
+      {
+        "name": "",
+        "date": ""
+      }
+    ],
+    "states": [
+      {
+        "id": 1,
+        "name": "California",
+        "selected": true
+      },
+      {
+        "id": 2,
+        "name": "Texas",
+        "selected": false
+      },
+      {
+        "id": 3,
+        "name": "New York",
+        "selected": true
+      },
+      {
+        "id": 4,
+        "name": "Florida",
+        "selected": false
+      },
+      {
+        "id": 5,
+        "name": "Illinois",
+        "selected": true
+      },
+      {
+        "id": 6,
+        "name": "Pennsylvania",
+        "selected": true
+      },
+      {
+        "id": 7,
+        "name": "Ohio",
+        "selected": true
+      },
+      {
+        "id": 8,
+        "name": "Georgia",
+        "selected": true
+      },
+      {
+        "id": 9,
+        "name": "North Carolina",
+        "selected": true
+      },
+      {
+        "id": 10,
+        "name": "Michigan",
+        "selected": true
+      }
+    ],
+    "agencies": [
+      {
+        "id": 1,
+        "name": "Agency A",
+        "selected": true
+      },
+      {
+        "id": 2,
+        "name": "Agency B",
+        "selected": true
+      },
+      {
+        "id": 3,
+        "name": "Agency C",
+        "selected": false
+      },
+      {
+        "id": 4,
+        "name": "Agency D",
+        "selected": false
+      },
+      {
+        "id": 5,
+        "name": "Agency E",
+        "selected": true
+      },
+      {
+        "id": 6,
+        "name": "Agency F",
+        "selected": true
+      },
+      {
+        "id": 7,
+        "name": "Agency G",
+        "selected": true
+      },
+      {
+        "id": 8,
+        "name": "Agency H",
+        "selected": false
+      },
+      {
+        "id": 9,
+        "name": "Agency I",
+        "selected": true
+      },
+      {
+        "id": 10,
+        "name": "Agency J",
+        "selected": true
+      }
+    ],
+    "publicHolidays": [
+      {
+        "date": "2025-01-07",
+        "day": "Tuesday",
+        "holidayname": "Republic Day"
+      },
+      {
+        "date": "2025-07-27",
+        "day": "Sunday",
+        "holidayname": "Labor Day"
+      },
+      {
+        "date": "2025-07-04",
+        "day": "Friday",
+        "holidayname": "Independence Day"
+      },
+      {
+        "date": "2025-05-21",
+        "day": "Wednesday",
+        "holidayname": "Gandhi Jayanti"
+      },
+      {
+        "date": "2025-10-13",
+        "day": "Monday",
+        "holidayname": "Christmas"
+      },
+      {
+        "date": "2025-03-13",
+        "day": "Thursday",
+        "holidayname": "New Year"
+      },
+      {
+        "date": "2025-08-16",
+        "day": "Saturday",
+        "holidayname": "Diwali"
+      },
+      {
+        "date": "2025-09-07",
+        "day": "Sunday",
+        "holidayname": "Holi"
+      },
+      {
+        "date": "2025-07-12",
+        "day": "Saturday",
+        "holidayname": "Eid al-Fitr"
+      },
+      {
+        "date": "2025-10-22",
+        "day": "Wednesday",
+        "holidayname": "Eid al-Adha"
+      },
+      {
+        "date": "2025-09-28",
+        "day": "Sunday",
+        "holidayname": "Good Friday"
+      },
+      {
+        "date": "2025-06-13",
+        "day": "Friday",
+        "holidayname": "Easter"
+      },
+      {
+        "date": "2025-06-10",
+        "day": "Tuesday",
+        "holidayname": "Maha Shivaratri"
+      },
+      {
+        "date": "2025-05-29",
+        "day": "Thursday",
+        "holidayname": "Janmashtami"
+      },
+      {
+        "date": "2025-05-06",
+        "day": "Tuesday",
+        "holidayname": "Raksha Bandhan"
+      },
+      {
+        "date": "2025-10-24",
+        "day": "Friday",
+        "holidayname": "Dussehra"
+      },
+      {
+        "date": "2025-04-10",
+        "day": "Thursday",
+        "holidayname": "Guru Nanak Jayanti"
+      },
+      {
+        "date": "2025-05-20",
+        "day": "Tuesday",
+        "holidayname": "Baisakhi"
+      },
+      {
+        "date": "2025-07-23",
+        "day": "Wednesday",
+        "holidayname": "Ugadi"
+      },
+      {
+        "date": "2025-05-24",
+        "day": "Saturday",
+        "holidayname": "Onam"
+      }
+    ]
+  },
+  {
+    "id": 1745141934617,
+    "name": "Office Calendar 2023",
+    "category": "non-office",
+    "shiftType": 3,
+    "variationType": "Group B",
+    "description": "sfdgdf fdgds dfgdfg dfgdsfg dfgfdgd",
+    "restLeaveStart": "2025-04-10",
+    "restLeaveEnd": "2025-04-10",
+    "weeklyRestDay": "monday",
+    "weeklyHoliday": "monday",
+    "term1": {
+      "start": "2025-04-19",
+      "end": "2025-04-28"
+    },
+    "term2": {
+      "start": "2025-04-17",
+      "end": "2025-04-23"
     },
     "holidayEvents": [
       {
@@ -98,12 +578,12 @@
       {
         "id": 3,
         "name": "Agency C",
-        "selected": false
+        "selected": true
       },
       {
         "id": 4,
         "name": "Agency D",
-        "selected": false
+        "selected": true
       },
       {
         "id": 5,

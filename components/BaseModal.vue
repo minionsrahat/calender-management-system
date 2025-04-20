@@ -21,9 +21,10 @@
 import { computed } from 'vue'
 import { DxPopup } from 'devextreme-vue/popup'
 
-import AgencyTable from './tables/AgencyTable.vue'
-import PublicHolidayTable from './tables/PublicHolidayTable.vue'
+import AgencyTable from '~/components/tables/AgencyTable.vue'
+import PublicHolidayTable from '~/components/tables/PublicHolidayTable.vue'
 import StateTable from "~/components/tables/StateTable.vue";
+import ShiftTable from "~/components/tables/ShiftTable.vue";
 
 const props = defineProps({
   visible: Boolean,
@@ -35,6 +36,7 @@ const componentMap = {
   agencies: AgencyTable,
   holidays: PublicHolidayTable,
   states: StateTable,
+  shifts: ShiftTable,
 }
 
 const currentComponent = computed(() => componentMap[props.contentType] || null)

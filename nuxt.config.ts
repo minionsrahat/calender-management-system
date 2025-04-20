@@ -6,9 +6,11 @@ export default defineNuxtConfig({
     'devextreme/dist/css/dx.light.css'
   ],
   vite: {
+
     plugins: [
       tailwindcss(),
     ],
   },
   modules: ["@pinia/nuxt"],
+
 });
