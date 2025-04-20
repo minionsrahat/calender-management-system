@@ -51,7 +51,7 @@
       {
         "id": 4,
         "name": "Florida",
-        "selected": false
+        "selected": true
       },
       {
         "id": 5,
@@ -61,7 +61,7 @@
       {
         "id": 6,
         "name": "Pennsylvania",
-        "selected": false
+        "selected": true
       },
       {
         "id": 7,
@@ -71,7 +71,7 @@
       {
         "id": 8,
         "name": "Georgia",
-        "selected": false
+        "selected": true
       },
       {
         "id": 9,
