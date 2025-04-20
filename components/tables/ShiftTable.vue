@@ -1,6 +1,6 @@
 <template>
   <div class="grid grid-cols-12 gap-4 px-4">
-    <!-- Shift Selector Card -->
+
     <div class="col-span-12 md:col-start-4 md:col-span-6">
       <div class="bg-white p-6 rounded-lg shadow-md mb-8">
         <h2 class="text-lg font-bold mb-4 text-center">Select Shift</h2>
@@ -25,8 +25,7 @@
       </div>
     </div>
 
-    <!-- Shift Days Table -->
-    <div class="col-span-12 md:col-start-3 md:col-span-8">
+    <div class="col-span-12 ">
       <div class="bg-white p-4 rounded-lg shadow-md">
         <h3 class="text-md font-semibold mb-2">Shift Days</h3>
         <DxDataGrid

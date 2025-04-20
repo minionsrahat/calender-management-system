@@ -35,7 +35,7 @@
             >
               <option disabled value="">Select a category</option>
               <option v-for="category in getCalendarCategories" :key="category.value" :value="category.value">
-                {{ category.label }}
+                {{ category?.label }}
               </option>
             </select>
           </div>
@@ -67,20 +67,36 @@
           />
         </div>
 
-        <div>
-          <label for="shiftType" class="block text-lg font-medium text-gray-700 mb-2">Shift Type</label>
-          <select
-              id="shiftType"
-              v-model="calendar.shiftType"
-              class="w-full border border-gray-300 rounded-md px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              required
-          >
-            <option disabled value="">Select shift type</option>
-            <option v-for="shift in shifts" :key="shift.id" :value="shift.id">
-              {{ shift.name }}
-            </option>
-          </select>
+        <div class="w-full">
+          <div class="flex flex-col md:flex-row md:items-end md:gap-12 gap-4">
+            <div class="flex-1">
+              <label for="shiftType" class="block text-lg font-medium text-gray-700 mb-2">Shift Type</label>
+              <select
+                  id="shiftType"
+                  v-model="calendar.shiftType"
+                  class="w-full border border-gray-300 rounded-md px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  required
+              >
+                <option disabled value="">Select shift type</option>
+                <option v-for="shift in shifts" :key="shift.id" :value="shift.id">
+                  {{ shift.name }}
+                </option>
+              </select>
+            </div>
+
+            <div>
+              <button
+                  type="button"
+                  @click="openModal('shifts')"
+                  class="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-bold py-2 px-4 rounded transition duration-200"
+              >
+                🏢 List of Shifts
+              </button>
+            </div>
+
+          </div>
         </div>
+
       </div>
     </div>
     <hr class="border-t border-gray-300" />
