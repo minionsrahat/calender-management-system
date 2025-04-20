@@ -17,7 +17,7 @@ export default defineEventHandler(async (event) => {
     if (Array.isArray(body.days)) {
         shifts[index].days = body.days
     }
-    const filePath = join(process.cwd(), 'server/mocker/shifts.json')
+    const filePath = join(process.cwd(), '~/server/mocker/shifts.json')
     writeFileSync(filePath, JSON.stringify(shifts, null, 2))
 
     return {

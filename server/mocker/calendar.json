@@ -718,5 +718,42 @@
         "holidayname": "Onam"
       }
     ]
+  },
+  {
+    "id": 1745151564015,
+    "name": "Random Calendar 2025",
+    "category": "different",
+    "shiftType": 3,
+    "variationType": "Group B",
+    "description": "sfdgdf fdgds dfgdfg dfgdsfg dfgfdgd",
+    "restLeaveStart": "2025-04-16",
+    "restLeaveEnd": "2025-04-19",
+    "weeklyRestDay": "sunday",
+    "weeklyHoliday": "saturday",
+    "term1": {
+      "start": "",
+      "end": ""
+    },
+    "term2": {
+      "start": "",
+      "end": ""
+    },
+    "holidayEvents": [
+      {
+        "name": "",
+        "date": ""
+      },
+      {
+        "name": "",
+        "date": ""
+      },
+      {
+        "name": "",
+        "date": ""
+      }
+    ],
+    "states": [],
+    "agencies": [],
+    "publicHolidays": []
   }
 ]
